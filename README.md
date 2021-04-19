@@ -14,6 +14,7 @@ $ docker build . -t msnaga/scan_matching:0.1
 $ docker pull msnaga/scan_matching:0.1
 ```
 ## Running the docker image
+Disable nvidia GPU if present
 ```
 $ xhost +
 ```
