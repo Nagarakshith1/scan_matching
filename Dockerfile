@@ -7,6 +7,7 @@ RUN apt-get update && apt-get install -y \
     ros-noetic-joy \
     ros-noetic-map-server \
     ros-noetic-xacro \
+    ros-noetic-cv-bridge \
     git
 
 ENV QT_X11_NO_MITSHM 1

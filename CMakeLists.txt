@@ -13,11 +13,13 @@ find_package(catkin REQUIRED COMPONENTS
 )
 
 find_package(Eigen3 REQUIRED)
+find_package(OpenCV REQUIRED)
 
 catkin_package(
   INCLUDE_DIRS include
   LIBRARIES point transform poly_root correspondence
-  CATKIN_DEPENDS nav_msgs roscpp std_msgs sensor_msgs geometry_msgs tf 
+  CATKIN_DEPENDS nav_msgs roscpp std_msgs sensor_msgs geometry_msgs tf
+  DEPENDS OpenCV 
 )
 
 
@@ -25,7 +27,8 @@ include_directories(
   include
   ${catkin_INCLUDE_DIRS}
   ${EIGEN3_INCLUDE_DIRS}
+  ${OpenCV_INCLUDE_DIRS}
 )
 
-add_executable(scan_matcher src/scan_match.cpp src/point.cpp src/transform.cpp src/correspondence.cpp src/poly_root.cpp)
-target_link_libraries(scan_matcher ${catkin_LIBRARIES})
+add_executable(scan_matcher src/scan_match.cpp src/point.cpp src/transform.cpp src/correspondence.cpp)
+target_link_libraries(scan_matcher ${catkin_LIBRARIES} ${OpenCV_LIBRARIES})

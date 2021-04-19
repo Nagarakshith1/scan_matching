@@ -4,9 +4,9 @@
 #include "scan_matching/constants.h"
 #include "scan_matching/point.h"
 #include "scan_matching/correspondence.h"
-#include "scan_matching/poly_root.h"
 #include <cmath>
 #include <vector>
+#include <opencv4/opencv2/opencv.hpp>
 
 class Transform{
   public:

@@ -126,8 +126,14 @@ void updateTransform(const std::vector<Correspondence> &corr, Transform &curr_tr
     pow_0 = S_det * S_det - (g.transpose() * A_pow_0 * g)(0,0);
 
     double x1, x2, x3, x4;
-    int nbroots = solve_deg4(pow_4, pow_3, pow_2, pow_1, pow_0, x1, x2, x3, x4);
-    double lambda = std::max({x1,x2,x3,x4});
+    std::vector<double> out;
+    cv::Mat input = (cv::Mat_<double>(5,1) << pow_0,pow_1,pow_2,pow_3,pow_4);
+    cv::Mat roots;
+    //int nbroots = solve_deg4(pow_4, pow_3, pow_2, pow_1, pow_0, x1, x2, x3, x4);
+    // double lambda = std::max({x1,x2,x3,x4});
+
+    cv::solvePoly(input,roots);
+    double lambda = std::max({roots.at<double>(0,0,0),roots.at<double>(1,0,0),roots.at<double>(2,0,0),roots.at<double>(3,0,0)});
 
     // Find the value of x which is the vector for translation and rotation
     Eigen::Vector4f x = -(2 * (M + lambda * W)).inverse().transpose() * g;
