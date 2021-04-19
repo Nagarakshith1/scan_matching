@@ -24,3 +24,6 @@ $ docker run -it --rm --name scan_matching -e DISPLAY=$DISPLAY -v /tmp/.X11-unix
 ## Simulator controls
 1) Press 'k' to activate the keyboard on the running terminal
 2) 'w' for forward, 's' for reverse, 'a' for left steer, 'd' for right steer, spacebar for brakes
+
+## Reference
+A. Censi, "An ICP variant using a point-to-line metric," 2008 IEEE International Conference on Robotics and Automation, Pasadena, CA, USA, 2008, pp. 19-25, doi: 10.1109/ROBOT.2008.4543181.
